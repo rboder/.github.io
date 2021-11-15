@@ -2,7 +2,6 @@
 .topnav {
   background-color: #333;
   overflow: hidden;
-  margin-bottom: 1em;
 }
 
 /* Style the links inside the navigation bar */
@@ -33,4 +32,15 @@ footer {
 
 body {
   font-family: Helvetica, sans-serif;
+  background-color: aliceblue;
+}
+
+#main {
+padding-top: 1em;
+text-align: center;
+background-color: rgb(245, 248, 250);
+}
+
+#linkedin_logo {
+  height:2em;
 }
