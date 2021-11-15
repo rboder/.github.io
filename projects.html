@@ -24,9 +24,9 @@
           <p>Playing around with the OpenWeatherMap API.</p>
       <script>
         function httpGet(){
-          var d = new Date();
-          var city = document.getElementById('input').value;
-          var xmlHttp = new XMLHttpRequest();
+          let date = new Date();
+          let city = document.getElementById('weather_input').value;
+          let xmlHttp = new XMLHttpRequest();
           xmlHttp.open( "GET", `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=b63cc6b7f28a7ad6cf69eab99c96172b`, false );
           xmlHttp.send( null );
           var response = JSON.parse(xmlHttp.responseText);
@@ -47,13 +47,19 @@
           }
         }
         </script>
-        <input type='text' id='input'>
-        <input type='button' value='Get Weather' onClick='httpGet()'>
+        <label for="weather_input">Input ZIP:</label>
+        <input type='text' id='weather_input'>
+        <input type='button' id="weather_submit" value='Get Weather' onClick='httpGet()'>
         <p id="city-name"></p>
         <p id="city-overview"></p>
         <p id="city-icon"><p>
         <p id="city-description"></p>
         <p id="city-temp"></p>
+        </div>
+        <div>
+          <h1>Animal Sounds</h1>
+          <p>An animal sounds interactive for my daughter Emma. Made in Scratch.</p>
+          <iframe src="https://scratch.mit.edu/projects/601218948/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
       <footer>
         <p>&copy; Robert Boder. Email: <a href="mailto:rboder@gmail.com">
