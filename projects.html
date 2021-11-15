@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Robert Boder Projects</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Robert Boder's Personal Webpage Projects Page">
+  <meta name="author" content="Robert Boder">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="topnav">
+        <nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+      </div>
+      <div>
+          <h1>Weather App</h1>
+          <p>Playing around with the OpenWeatherMap API.</p>
+      <script>
+        function httpGet(){
+          var d = new Date();
+          var city = document.getElementById('input').value;
+          var xmlHttp = new XMLHttpRequest();
+          xmlHttp.open( "GET", `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=b63cc6b7f28a7ad6cf69eab99c96172b`, false );
+          xmlHttp.send( null );
+          var response = JSON.parse(xmlHttp.responseText);
+          document.getElementById('city-name').innerHTML = `Currently in ${response.name}:`;
+          document.getElementById('city-overview').innerHTML = `${response.weather[0].main}`;
+          document.getElementById('city-description').innerHTML = `${response.weather[0].description}`;
+          var temp = Math.round((response.main.temp - 273.15) * 9/5 + 32)
+          document.getElementById('city-temp').innerHTML = `It is ${temp} degrees Fahrenheit`;
+          if (response.weather[0].main == 'Rain'){
+            document.getElementById('city-icon').innerHTML = `<img id="city-icon" src="img/umbrella_black_24dp.svg" alt="Rain" height=100px width=100px>`;
+          } else if (response.weather[0].main == 'Clouds'){
+            document.getElementById('city-icon').innerHTML = `<img id="city-icon" src="img/cloud_black_24dp.svg" alt="Clouds" height=100px width=100px>`;
+          } else if (response.weather[0].main == 'Clear'){
+            document.getElementById('city-icon').innerHTML = `<img id="city-icon" src="img/wb_sunny_black_24dp.svg" alt="Clouds" height=100px width=100px>`;
+          }
+          else {
+            document.getElementById('city-icon').innerHTML = `<img id="city-icon" src="_images/noun_questions_1011179.png" alt="Unknown" height=100px width=100px>`
+          }
+        }
+        </script>
+        <input type='text' id='input'>
+        <input type='button' value='Get Weather' onClick='httpGet()'>
+        <p id="city-name"></p>
+        <p id="city-overview"></p>
+        <p id="city-icon"><p>
+        <p id="city-description"></p>
+        <p id="city-temp"></p>
+        </div>
+      <footer>
+        <p>&copy; Robert Boder. Email: <a href="mailto:rboder@gmail.com">
+          rboder@gmail.com</a></p>
+      </footer>
+</body>
+</html>
