@@ -27,7 +27,7 @@
           var d = new Date();
           var city = document.getElementById('input').value;
           var xmlHttp = new XMLHttpRequest();
-          xmlHttp.open( "GET", `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=b63cc6b7f28a7ad6cf69eab99c96172b`, false );
+          xmlHttp.open( "GET", `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=b63cc6b7f28a7ad6cf69eab99c96172b`, false );
           xmlHttp.send( null );
           var response = JSON.parse(xmlHttp.responseText);
           document.getElementById('city-name').innerHTML = `Currently in ${response.name}:`;
