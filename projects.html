@@ -29,12 +29,9 @@
           let xmlHttp = new XMLHttpRequest();
           xmlHttp.open( "GET", `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=b63cc6b7f28a7ad6cf69eab99c96172b`, false );
           xmlHttp.send( null );
-          var response = JSON.parse(xmlHttp.responseText);
-          document.getElementById('city-name').innerHTML = `Currently in ${response.name}:`;
-          document.getElementById('city-overview').innerHTML = `${response.weather[0].main}`;
-          document.getElementById('city-description').innerHTML = `${response.weather[0].description}`;
-          var temp = Math.round((response.main.temp - 273.15) * 9/5 + 32)
-          document.getElementById('city-temp').innerHTML = `It is ${temp} degrees Fahrenheit`;
+          let response = JSON.parse(xmlHttp.responseText);
+          let temp = Math.round((response.main.temp - 273.15) * 9/5 + 32)
+          document.getElementById('city-overview').innerHTML = `Currently in ${response.name}, it is ${temp} degrees Fahrenheit and ${response.weather[0].main} (${response.weather[0].description})`;
           if (response.weather[0].main == 'Rain'){
             document.getElementById('city-icon').innerHTML = `<img id="city-icon" src="img/umbrella_black_24dp.svg" alt="Rain" height=100px width=100px>`;
           } else if (response.weather[0].main == 'Clouds'){
@@ -50,11 +47,8 @@
         <label for="weather_input">Input ZIP:</label>
         <input type='text' id='weather_input'>
         <input type='button' id="weather_submit" value='Get Weather' onClick='httpGet()'>
-        <p id="city-name"></p>
         <p id="city-overview"></p>
         <p id="city-icon"><p>
-        <p id="city-description"></p>
-        <p id="city-temp"></p>
         </div>
         <div>
           <h1>Animal Sounds</h1>
