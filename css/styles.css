@@ -35,6 +35,10 @@ body {
   background-color: aliceblue;
 }
 
+.skill_list {
+  text-align: unset;
+}
+
 #main {
 padding-top: 1em;
 text-align: center;
