@@ -28,11 +28,14 @@
 
 footer {
   text-align: center;
+  flex-shrink: 0;
 }
 
 body {
   font-family: Helvetica, sans-serif;
   background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
 }
 
 .skill_list {
@@ -43,6 +46,7 @@ body {
 padding-top: 1em;
 text-align: center;
 background-color: rgb(245, 248, 250);
+flex: 1 0 auto;
 }
 
 #linkedin_logo {
