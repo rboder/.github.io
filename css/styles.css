@@ -2,6 +2,7 @@
 .topnav {
   background-color: #333;
   overflow: hidden;
+  grid-area: Header;
 }
 
 /* Style the links inside the navigation bar */
@@ -26,17 +27,21 @@
   color: white;
 }
 
-footer {
-  text-align: center;
-  flex-shrink: 0;
-}
-
 body {
   font-family: Helvetica, sans-serif;
   background-color: aliceblue;
-  display: flex;
-  flex-direction: column;
   margin-top: 0em;
+}
+
+.two-column {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: auto auto auto; 
+  gap: 10px; 
+  grid-template-areas: 
+    "Header Header Header"
+    "Body Body Image"
+    "Footer Footer Footer"; 
 }
 
 .skill_list {
@@ -47,9 +52,24 @@ body {
 padding-top: 1em;
 text-align: center;
 background-color: rgb(245, 248, 250);
-flex: 1 0 auto;
+grid-area: Body;
 }
 
-#linkedin_logo {
+.logo {
   height:2em;
+  padding:.25em;
+}
+
+footer {
+  grid-area: Footer;
+  text-align: center;
+}
+
+#headshot {
+  grid-area: Image;
+  border-radius: 25%;
+}
+
+#buster {
+  border-radius: 10%;
 }
